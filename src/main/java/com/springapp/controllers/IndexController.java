@@ -1,7 +1,5 @@
 package com.springapp.controllers;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -20,8 +18,9 @@ public class IndexController {
     
     @RequestMapping("/")
     public void index(HttpServletRequest request, HttpServletResponse response) throws Exception{
-        todoDao.create(new Todo("Learn OpenShift"));
-        List<Todo> todos = todoDao.allTodos();
-        response.getWriter().print(todos.toString());
+        Todo todo = new Todo("Learn OpenShift");
+        todoDao.create(todo);
+//        List<Todo> todos = todoDao.allTodos();
+        response.getWriter().print(todo.toString());
     }
 }
