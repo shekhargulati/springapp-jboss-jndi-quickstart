@@ -28,8 +28,11 @@
 		class="org.springframework.orm.jpa.support.SharedEntityManagerBean">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
-
+	<tx:annotation-driven transaction-manager="myTransactionManager" />
 	<tx:jta-transaction-manager />
+
+	<bean id="myTransactionManager"
+		class="org.springframework.transaction.jta.JtaTransactionManager" />
 
 
 </beans>
